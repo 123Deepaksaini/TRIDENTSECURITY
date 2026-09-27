@@ -1,0 +1,443 @@
+{
+  "admins": [
+    {
+      "id": 1,
+      "username": "admin",
+      "email": "admin@tridentsecuritys.com",
+      "password_hash": "$2b$12$u997WlLWuW2vVkJ2pAYzdeLqyaoQjJZWlVBglZP9K4LB0BneIWav6",
+      "full_name": "Trident Command Center Admin",
+      "role": "SUPER_ADMIN",
+      "is_active": 1,
+      "last_login": "2026-09-27T18:13:23.987Z",
+      "created_at": "2026-09-22T16:33:52.060Z"
+    }
+  ],
+  "inquiries": [
+    {
+      "id": 1790184860339,
+      "name": "Vipul Tyagi",
+      "email": "vipultyagi4040@gmail.com",
+      "phone": "08273012889",
+      "service_type": "Reception & Front Desk Management",
+      "message": "uhbuhhbuh",
+      "status": "SPAM",
+      "admin_notes": null,
+      "ip_address": "::1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+      "created_at": "2026-09-23T17:34:20.339Z"
+    },
+    {
+      "id": 1790513033790,
+      "name": "Ramesh Sharma",
+      "email": "ramesh.sharma@example.com",
+      "phone": "+91 7415431551",
+      "service_type": "Armed Guard / Gunman",
+      "message": "Need 2 armed security guards for factory premises in Jabalpur.",
+      "status": "CONTACTED",
+      "admin_notes": "Duty officer briefed the client.",
+      "ip_address": "::1",
+      "user_agent": "node",
+      "created_at": "2026-09-27T12:43:53.790Z"
+    },
+    {
+      "id": 1790513159537,
+      "name": "Ramesh Sharma",
+      "email": "ramesh.sharma@example.com",
+      "phone": "+91 7415431551",
+      "service_type": "Armed Guard / Gunman",
+      "message": "Need 2 armed security guards for factory premises in Jabalpur.",
+      "status": "CONTACTED",
+      "admin_notes": "Duty officer briefed the client.",
+      "ip_address": "::1",
+      "user_agent": "node",
+      "created_at": "2026-09-27T12:45:59.537Z"
+    },
+    {
+      "id": 1790532251647,
+      "name": "Ramesh Sharma",
+      "email": "ramesh.sharma@example.com",
+      "phone": "+91 7415431551",
+      "service_type": "Armed Guard / Gunman",
+      "message": "Need 2 armed security guards for factory premises in Jabalpur.",
+      "status": "CONTACTED",
+      "admin_notes": "Duty officer briefed the client.",
+      "ip_address": "::1",
+      "user_agent": "node",
+      "created_at": "2026-09-27T18:04:11.647Z"
+    },
+    {
+      "id": 1790532803567,
+      "name": "Major Vikram",
+      "email": "enc:d7163f4714b707421d0d99a0:607ded1e27a85a80fbcc2856f94434c1:f2a4c64620eb1716de6da7263a1e6a4e6ea73a129b299328e3c91e",
+      "phone": "enc:dae802f586b3de4f147ed62c:304a24f57d99c91be8f1c438158e3fc1:1941e747679b6bee9abacd05",
+      "service_type": "Armed Guard / Gunman",
+      "message": "enc:cd7339de4e340ae9f724a9fe:5ab704544093667c15395566c16e8336:1df9e36ffe79e04da26ff0903bab1f33d45c6c7004c63965171d2313fa50d5a39882c5a8783719f2fb164928bc2c27d8297a34661d37eb",
+      "status": "NEW",
+      "admin_notes": null,
+      "ip_address": "::1",
+      "user_agent": "node",
+      "created_at": "2026-09-27T18:13:23.567Z"
+    }
+  ],
+  "quote_requests": [
+    {
+      "id": 1790097171401,
+      "reference_no": "TRD-2026-I6AR",
+      "customer_name": "kartik kumar",
+      "company_name": "apex industrial partk",
+      "email": "vipultyagi4040@gmail.com",
+      "phone": "8218651712",
+      "city": "Hasanpur",
+      "state": "Uttar Pradesh",
+      "shift_duration": "12_HOURS",
+      "estimated_monthly_inr": 18000,
+      "cart_items_json": [
+        {
+          "id": "reception-front-desk",
+          "title": "Reception & Front Desk Management",
+          "category": "Facility & Allied",
+          "basePriceMonthly": 18000,
+          "quantity": 1,
+          "shift": "24_HOURS"
+        }
+      ],
+      "special_instructions": "require two night guard",
+      "status": "PENDING_QUOTE",
+      "admin_notes": null,
+      "ip_address": "::1",
+      "created_at": "2026-09-22T17:12:51.401Z"
+    },
+    {
+      "id": 1790097892671,
+      "reference_no": "TRD-2026-OICF",
+      "customer_name": "pappu saini",
+      "company_name": "pappu pvt. ltd.",
+      "email": "vipultyagi4040@gmail.com",
+      "phone": "8273012889",
+      "city": "rampur",
+      "state": "Uttar Pradesh",
+      "shift_duration": "12_HOURS",
+      "estimated_monthly_inr": 48000,
+      "cart_items_json": [
+        {
+          "id": "armed-guard",
+          "title": "Armed Guard / Gunman",
+          "category": "Manned Guarding",
+          "basePriceMonthly": 24000,
+          "quantity": 2,
+          "shift": "24_HOURS"
+        }
+      ],
+      "special_instructions": "reequire gun man for protecting my aand",
+      "status": "REJECTED",
+      "admin_notes": null,
+      "ip_address": "::1",
+      "created_at": "2026-09-22T17:24:52.671Z"
+    },
+    {
+      "id": 1790183929617,
+      "reference_no": "TRD-2026-55HV",
+      "customer_name": "Vipul Tyagi",
+      "company_name": "ijhyhhh",
+      "email": "vipultyagi4040@gmail.com",
+      "phone": "08273012889",
+      "city": "Hasanpur",
+      "state": "Uttar Pradesh",
+      "shift_duration": "24_HOURS",
+      "estimated_monthly_inr": 76775,
+      "cart_items_json": [
+        {
+          "id": "armed-guard",
+          "title": "Armed Guard / Gunman",
+          "category": "Manned Guarding",
+          "basePriceMonthly": 24000,
+          "quantity": 1,
+          "shift": "24_HOURS"
+        },
+        {
+          "id": "computer-operator-deo",
+          "title": "Computer Operator & DEO Services",
+          "category": "Allied Services",
+          "basePriceMonthly": 17500,
+          "quantity": 1,
+          "shift": "24_HOURS"
+        }
+      ],
+      "special_instructions": "ugfudufbsudf",
+      "status": "PENDING_QUOTE",
+      "admin_notes": null,
+      "ip_address": "::1",
+      "created_at": "2026-09-23T17:18:49.617Z"
+    },
+    {
+      "id": 1790513033794,
+      "reference_no": "TRD-2026-J4SW",
+      "customer_name": "Anjali Verma",
+      "company_name": "Verma Tech Complex",
+      "email": "anjali@vermatech.in",
+      "phone": "+91 9682165489",
+      "city": "Jabalpur",
+      "state": "Madhya Pradesh",
+      "shift_duration": "24_HOURS",
+      "estimated_monthly_inr": 48000,
+      "cart_items_json": [
+        {
+          "id": "armed-guard",
+          "title": "Armed Guard / Gunman",
+          "quantity": 2,
+          "basePriceMonthly": 24000
+        }
+      ],
+      "special_instructions": "Require night-shift patrolling and torch equipment.",
+      "status": "PENDING_QUOTE",
+      "admin_notes": null,
+      "ip_address": "::1",
+      "created_at": "2026-09-27T12:43:53.794Z"
+    },
+    {
+      "id": 1790513159544,
+      "reference_no": "TRD-2026-OXP3",
+      "customer_name": "Anjali Verma",
+      "company_name": "Verma Tech Complex",
+      "email": "anjali@vermatech.in",
+      "phone": "+91 9682165489",
+      "city": "Jabalpur",
+      "state": "Madhya Pradesh",
+      "shift_duration": "24_HOURS",
+      "estimated_monthly_inr": 48000,
+      "cart_items_json": [
+        {
+          "id": "armed-guard",
+          "title": "Armed Guard / Gunman",
+          "quantity": 2,
+          "basePriceMonthly": 24000
+        }
+      ],
+      "special_instructions": "Require night-shift patrolling and torch equipment.",
+      "status": "PENDING_QUOTE",
+      "admin_notes": null,
+      "ip_address": "::1",
+      "created_at": "2026-09-27T12:45:59.544Z"
+    },
+    {
+      "id": 1790532251657,
+      "reference_no": "TRD-2026-4I0L",
+      "customer_name": "Anjali Verma",
+      "company_name": "Verma Tech Complex",
+      "email": "anjali@vermatech.in",
+      "phone": "+91 9682165489",
+      "city": "Jabalpur",
+      "state": "Madhya Pradesh",
+      "shift_duration": "24_HOURS",
+      "estimated_monthly_inr": 48000,
+      "cart_items_json": [
+        {
+          "id": "armed-guard",
+          "title": "Armed Guard / Gunman",
+          "quantity": 2,
+          "basePriceMonthly": 24000
+        }
+      ],
+      "special_instructions": "Require night-shift patrolling and torch equipment.",
+      "status": "PENDING_QUOTE",
+      "admin_notes": null,
+      "ip_address": "::1",
+      "created_at": "2026-09-27T18:04:11.657Z"
+    },
+    {
+      "id": 1790532804042,
+      "reference_no": "TRD-2026-0PCZ",
+      "customer_name": "Anjali Verma",
+      "company_name": "Verma Tech Complex",
+      "email": "enc:da59df8879288973e34bdbc2:88378eb7c55c6f5679185a1a2b1fff8d:77d90814c5da94d9080d7d3a75249b9b6f8e47",
+      "phone": "enc:982f966532feaf2d7fa6e300:4d96c439d935a3378f1b9121743cf4d5:8d17df3993693dcad6083db3",
+      "city": "Jabalpur",
+      "state": "Madhya Pradesh",
+      "shift_duration": "24_HOURS",
+      "estimated_monthly_inr": 48000,
+      "cart_items_json": [
+        {
+          "id": "armed-guard",
+          "title": "Armed Guard / Gunman",
+          "quantity": 2,
+          "basePriceMonthly": 24000
+        }
+      ],
+      "special_instructions": "enc:c13ea14f2b111f3ea12ece23:ef840baaae04bc46dc47ae1b114db454:8244322c949c44cffe461b2bec23ca2c34a28d8e0ca2f48fc9e61c2746679e6252cee4aa992028724104ef8e14c53954c959a7",
+      "status": "PENDING_QUOTE",
+      "admin_notes": null,
+      "ip_address": "::1",
+      "created_at": "2026-09-27T18:13:24.042Z"
+    }
+  ],
+  "job_applications": [
+    {
+      "id": 1790095777802,
+      "full_name": "Subedar Major (Retd) D. S. Thakur",
+      "phone": "7415431551",
+      "email": "thakur.exarmy@gmail.com",
+      "age": 42,
+      "height_cm": 178,
+      "applied_role": "Field Security Supervisor",
+      "experience_years": 15,
+      "is_ex_serviceman": true,
+      "armed_license_held": true,
+      "current_address": "Indira Awas Colony, Manegaon, Jabalpur",
+      "police_verification_status": "PENDING",
+      "resume_summary": "Served 15 years in Indian Army (Infantry). Gun license valid.",
+      "status": "APPLICATION_RECEIVED",
+      "created_at": "2026-09-22T16:49:37.802Z"
+    },
+    {
+      "id": 1790098155632,
+      "full_name": "kartik kumar",
+      "phone": "818651712",
+      "email": "vipultyagi4040@gmail.com",
+      "age": 18,
+      "height_cm": 175,
+      "applied_role": "Armed Guard / Gunman",
+      "experience_years": -18,
+      "is_ex_serviceman": true,
+      "armed_license_held": false,
+      "current_address": "Ujhari",
+      "police_verification_status": "PENDING",
+      "resume_summary": null,
+      "status": "INTERVIEW_SCHEDULED",
+      "created_at": "2026-09-22T17:29:15.632Z"
+    },
+    {
+      "id": 1790513033798,
+      "full_name": "Subedar Major (Retd) D. S. Thakur",
+      "phone": "7415431551",
+      "email": "thakur.exarmy@gmail.com",
+      "age": 42,
+      "height_cm": 178,
+      "applied_role": "Field Security Supervisor",
+      "experience_years": 15,
+      "is_ex_serviceman": true,
+      "armed_license_held": true,
+      "current_address": "Indira Awas Colony, Manegaon, Jabalpur",
+      "police_verification_status": "PENDING",
+      "resume_summary": "Served 15 years in Indian Army (Infantry). Gun license valid.",
+      "status": "APPLICATION_RECEIVED",
+      "created_at": "2026-09-27T12:43:53.798Z"
+    },
+    {
+      "id": 1790513159550,
+      "full_name": "Subedar Major (Retd) D. S. Thakur",
+      "phone": "7415431551",
+      "email": "thakur.exarmy@gmail.com",
+      "age": 42,
+      "height_cm": 178,
+      "applied_role": "Field Security Supervisor",
+      "experience_years": 15,
+      "is_ex_serviceman": true,
+      "armed_license_held": true,
+      "current_address": "Indira Awas Colony, Manegaon, Jabalpur",
+      "police_verification_status": "PENDING",
+      "resume_summary": "Served 15 years in Indian Army (Infantry). Gun license valid.",
+      "status": "APPLICATION_RECEIVED",
+      "created_at": "2026-09-27T12:45:59.550Z"
+    },
+    {
+      "id": 1790532251664,
+      "full_name": "Subedar Major (Retd) D. S. Thakur",
+      "phone": "7415431551",
+      "email": "thakur.exarmy@gmail.com",
+      "age": 42,
+      "height_cm": 178,
+      "applied_role": "Field Security Supervisor",
+      "experience_years": 15,
+      "is_ex_serviceman": true,
+      "armed_license_held": true,
+      "current_address": "Indira Awas Colony, Manegaon, Jabalpur",
+      "police_verification_status": "PENDING",
+      "resume_summary": "Served 15 years in Indian Army (Infantry). Gun license valid.",
+      "status": "APPLICATION_RECEIVED",
+      "created_at": "2026-09-27T18:04:11.664Z"
+    }
+  ],
+  "audit_logs": [
+    {
+      "id": 1790095778069,
+      "actor_type": "ADMIN",
+      "actor_id": 1,
+      "action": "ADMIN_LOGIN_SUCCESS",
+      "details": "Admin admin logged in",
+      "ip_address": "::1",
+      "created_at": "2026-09-22T16:49:38.069Z"
+    },
+    {
+      "id": 1790097284168,
+      "actor_type": "ADMIN",
+      "actor_id": 1,
+      "action": "ADMIN_LOGIN_SUCCESS",
+      "details": "Admin admin logged in",
+      "ip_address": "::1",
+      "created_at": "2026-09-22T17:14:44.168Z"
+    },
+    {
+      "id": 1790137191228,
+      "actor_type": "ADMIN",
+      "actor_id": 1,
+      "action": "ADMIN_LOGIN_SUCCESS",
+      "details": "Admin admin logged in",
+      "ip_address": "::1",
+      "created_at": "2026-09-23T04:19:51.228Z"
+    },
+    {
+      "id": 1790352171281,
+      "actor_type": "ADMIN",
+      "actor_id": 1,
+      "action": "ADMIN_LOGIN_SUCCESS",
+      "details": "Admin admin logged in",
+      "ip_address": "::1",
+      "created_at": "2026-09-25T16:02:51.281Z"
+    },
+    {
+      "id": 1790513034061,
+      "actor_type": "ADMIN",
+      "actor_id": 1,
+      "action": "ADMIN_LOGIN_SUCCESS",
+      "details": "Admin admin logged in",
+      "ip_address": "::1",
+      "created_at": "2026-09-27T12:43:54.061Z"
+    },
+    {
+      "id": 1790513159887,
+      "actor_type": "ADMIN",
+      "actor_id": 1,
+      "action": "ADMIN_LOGIN_SUCCESS",
+      "details": "Admin admin logged in",
+      "ip_address": "::1",
+      "created_at": "2026-09-27T12:45:59.887Z"
+    },
+    {
+      "id": 1790532252056,
+      "actor_type": "ADMIN",
+      "actor_id": 1,
+      "action": "ADMIN_LOGIN_SUCCESS",
+      "details": "Admin admin logged in",
+      "ip_address": "::1",
+      "created_at": "2026-09-27T18:04:12.056Z"
+    },
+    {
+      "id": 1790532803588,
+      "actor_type": "ANONYMOUS",
+      "actor_id": null,
+      "action": "FAILED_LOGIN_UNKNOWN_USER",
+      "details": "Attempted user: attacker_unknown_user",
+      "ip_address": "::1",
+      "created_at": "2026-09-27T18:13:23.588Z"
+    },
+    {
+      "id": 1790532803990,
+      "actor_type": "ADMIN",
+      "actor_id": 1,
+      "action": "ADMIN_LOGIN_SUCCESS",
+      "details": "Admin admin authorized",
+      "ip_address": "::1",
+      "created_at": "2026-09-27T18:13:23.990Z"
+    }
+  ]
+}

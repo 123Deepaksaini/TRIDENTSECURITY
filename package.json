@@ -1,0 +1,14 @@
+{
+  "name": "trident-security-app",
+  "version": "2.0.0",
+  "description": "Modern fullstack platform for Trident Security Services",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "start": "npm run start --prefix server",
+    "cluster": "npm run cluster --prefix server",
+    "build": "npm run build --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
