@@ -16,9 +16,7 @@
     "leaflet": "^1.9.4",
     "lucide-react": "^1.47.0",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
-  },
-  "devDependencies": {
+    "react-dom": "^19.2.8",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
