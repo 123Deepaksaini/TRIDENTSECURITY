@@ -90,6 +90,16 @@ export async function initDatabase() {
     isConnected = true;
     console.log('✅ Connected to MongoDB successfully!');
 
+    // Ensure all collections exist
+    await Promise.all([
+      Admin.createCollection(),
+      Inquiry.createCollection(),
+      QuoteRequest.createCollection(),
+      JobApplication.createCollection(),
+      AuditLog.createCollection()
+    ]).catch(() => {}); // ignore if already exist
+    console.log('📦 All collections ensured.');
+
     // Seed default admin if none exists
     const existing = await Admin.findOne({});
     if (!existing) {
