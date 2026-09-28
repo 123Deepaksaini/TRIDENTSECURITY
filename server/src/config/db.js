@@ -84,7 +84,8 @@ export async function initDatabase() {
       connectionLimit: Number(process.env.DB_CONNECTION_LIMIT) || 50,
       queueLimit: 0,
       enableKeepAlive: true,
-      keepAliveInitialDelay: 0
+      keepAliveInitialDelay: 0,
+      ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: true } : undefined
     });
 
     // Test connection
