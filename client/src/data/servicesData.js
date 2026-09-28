@@ -109,8 +109,8 @@ export const TRIDENT_GALLERY_PHOTOS = [
     url: '/images/trident_photos/trident_photo_7.jpg',
     title: 'College & Institutional Security Cadre',
     location: 'Gyan Ganga College of Excellence, Jabalpur',
-    category: 'Full Cadre Deployment',
-    desc: 'Complete Trident Security Squad & Bouncers team lineup with Chief Security Officer.'
+    category: 'Institutional',
+    description: 'Complete Trident Security Squad & Bouncers team lineup with Chief Security Officer.'
   },
   {
     id: 2,
@@ -118,23 +118,23 @@ export const TRIDENT_GALLERY_PHOTOS = [
     title: 'Commercial Valet & Complex Guard',
     location: 'Hyundai Commercial Hub',
     category: 'Manned Guarding',
-    desc: 'Vigilant Trident guard in complete uniform, PSARA badge, cap & ID lanyard.'
+    description: 'Vigilant Trident guard in complete uniform, PSARA badge, cap & ID lanyard.'
   },
   {
     id: 3,
     url: '/images/trident_photos/trident_photo_1.jpg',
     title: 'VIP Personal Security Officer (PSO)',
     location: 'Highway Convoy Escort',
-    category: 'VIP Protection & Escort',
-    desc: 'Elite close-protection bodyguard with wireless walkie-talkie & convoy vehicle.'
+    category: 'VIP Protection',
+    description: 'Elite close-protection bodyguard with wireless walkie-talkie & convoy vehicle.'
   },
   {
     id: 4,
     url: '/images/trident_photos/trident_photo_8.jpg',
     title: 'Trident Facility & Housekeeping Staff',
     location: 'Corporate Showroom',
-    category: 'Facility Management',
-    desc: 'Facility team in official orange Trident jacket maintaining premises hygiene.'
+    category: 'Facility & Allied',
+    description: 'Facility team in official orange Trident jacket maintaining premises hygiene.'
   },
   {
     id: 5,
@@ -142,7 +142,7 @@ export const TRIDENT_GALLERY_PHOTOS = [
     title: 'Campus & School Gate Security',
     location: 'Institutional Perimeter',
     category: 'Manned Guarding',
-    desc: 'Disciplined guard in smart salute ensuring safe campus entry & perimeter defense.'
+    description: 'Disciplined guard in smart salute ensuring safe campus entry & perimeter defense.'
   },
   {
     id: 6,
@@ -150,39 +150,39 @@ export const TRIDENT_GALLERY_PHOTOS = [
     title: 'Elite Event Bouncers & Protection',
     location: 'Gala & High-Profile Entry',
     category: 'VIP Protection',
-    desc: 'Commanding bouncer squad managing crowd control and VIP entrances.'
+    description: 'Commanding bouncer squad managing crowd control and VIP entrances.'
   },
   {
     id: 7,
     url: '/images/trident_photos/trident_photo_9.jpg',
     title: 'Showroom Security Executive',
     location: 'Automobile Dealership',
-    category: 'Retail & Corporate Security',
-    desc: 'Dedicated physical security for luxury automobile and commercial establishments.'
+    category: 'Supervisory Cadre',
+    description: 'Dedicated physical security for luxury automobile and commercial establishments.'
   },
   {
     id: 8,
     url: '/images/trident_photos/trident_photo_6.jpg',
     title: 'Field Security Supervisors',
     location: 'Commercial Shopping Complex',
-    category: 'Patrol & Supervision',
-    desc: 'On-site supervisors in official Trident collared uniform at commercial hub.'
+    category: 'Supervisory Cadre',
+    description: 'On-site supervisors in official Trident collared uniform at commercial hub.'
   },
   {
     id: 9,
     url: '/images/trident_photos/trident_photo_2.jpg',
     title: 'Armed & Executive Protection Duo',
     location: 'Private Estate & Vault Gate',
-    category: 'Armed & Perimeter Security',
-    desc: 'Perimeter access control and high-profile gate vigilance.'
+    category: 'Manned Guarding',
+    description: 'Perimeter access control and high-profile gate vigilance.'
   },
   {
     id: 10,
     url: '/images/trident_photos/trident_photo_5.jpg',
     title: 'Multi-Location Field Operations',
     location: 'Industrial & School Network',
-    category: 'Facility & Guarding',
-    desc: 'Multi-post deployment collage across schools, gates, and facility services.'
+    category: 'Facility & Allied',
+    description: 'Multi-post deployment collage across schools, gates, and facility services.'
   }
 ];
 
