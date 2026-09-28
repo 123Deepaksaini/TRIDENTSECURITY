@@ -4,10 +4,17 @@ import cors from 'cors';
 import compression from 'compression';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+import { existsSync } from 'fs';
 import { generalLimiter } from './middleware/rateLimiter.js';
 import { securitySanitizer } from './middleware/sanitize.js';
 import apiRouter from './routes/api.js';
 import { initDatabase } from './config/db.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const DIST_PATH = join(__dirname, '../../client/dist');
 
 dotenv.config();
 
@@ -76,23 +83,20 @@ app.use('/api', generalLimiter);
 // Mount API Gateway
 app.use('/api', apiRouter);
 
-// Root Welcome
-app.get('/', (req, res) => {
-  res.json({
-    name: 'TRIDENT SECURITY SERVICES API GATEWAY',
-    version: '2.0.0',
-    status: 'ONLINE',
-    documentation: '/api/health'
+// Serve React Frontend (if built)
+if (existsSync(DIST_PATH)) {
+  app.use(express.static(DIST_PATH));
+  app.get('*', (req, res) => {
+    res.sendFile(join(DIST_PATH, 'index.html'));
   });
-});
-
-// 404 Handler
-app.use((req, res) => {
-  res.status(404).json({
-    success: false,
-    message: `Resource ${req.originalUrl} not found on Trident Security Server.`
+} else {
+  app.get('/', (req, res) => {
+    res.json({ name: 'TRIDENT SECURITY SERVICES API GATEWAY', version: '2.0.0', status: 'ONLINE' });
   });
-});
+  app.use((req, res) => {
+    res.status(404).json({ success: false, message: `Resource ${req.originalUrl} not found.` });
+  });
+}
 
 // Global Error Handler
 app.use((err, req, res, next) => {
