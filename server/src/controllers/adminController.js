@@ -1,51 +1,40 @@
-import { dbQuery } from '../config/db.js';
+import { Inquiry, QuoteRequest, JobApplication, AuditLog } from '../config/db.js';
 import { apiCache } from '../utils/cache.js';
 import { decryptObjectFields } from '../utils/crypto.js';
 
 export async function getDashboardMetrics(req, res) {
   try {
     const cached = apiCache.get('admin_metrics');
-    if (cached) {
-      return res.json({ success: true, ...cached, fromCache: true });
-    }
+    if (cached) return res.json({ success: true, ...cached, fromCache: true });
 
-    const rawInquiries = await dbQuery('SELECT * FROM inquiries ORDER BY created_at DESC');
-    const rawQuotes = await dbQuery('SELECT * FROM quote_requests ORDER BY created_at DESC');
-    const rawApplications = await dbQuery('SELECT * FROM job_applications ORDER BY created_at DESC');
-    const logs = await dbQuery('SELECT * FROM audit_logs ORDER BY created_at DESC LIMIT 20');
+    const [rawInquiries, rawQuotes, rawApplications, logs] = await Promise.all([
+      Inquiry.find().sort({ createdAt: -1 }).lean(),
+      QuoteRequest.find().sort({ createdAt: -1 }).lean(),
+      JobApplication.find().sort({ createdAt: -1 }).lean(),
+      AuditLog.find().sort({ createdAt: -1 }).limit(20).lean()
+    ]);
 
-    // Secure Decryption for Admin View
-    const inquiries = decryptObjectFields(rawInquiries, ['phone', 'email', 'message']);
-    const quotes = decryptObjectFields(rawQuotes, ['phone', 'email', 'special_instructions']);
+    const inquiries    = decryptObjectFields(rawInquiries, ['phone', 'email', 'message']);
+    const quotes       = decryptObjectFields(rawQuotes, ['phone', 'email', 'special_instructions']);
     const applications = decryptObjectFields(rawApplications, ['phone', 'email', 'current_address', 'resume_summary']);
-
-    const totalInquiries = inquiries.length;
-    const newInquiries = inquiries.filter(i => i.status === 'NEW').length;
-    const totalQuotes = quotes.length;
-    const pendingQuotes = quotes.filter(q => q.status === 'PENDING_QUOTE').length;
-    const totalApplications = applications.length;
-    const exServicemenCount = applications.filter(a => a.is_ex_serviceman).length;
-
-    const totalEstimatedPipeline = quotes.reduce((acc, q) => acc + (Number(q.estimated_monthly_inr) || 0), 0);
 
     const data = {
       metrics: {
-        totalInquiries,
-        newInquiries,
-        totalQuotes,
-        pendingQuotes,
-        totalApplications,
-        exServicemenCount,
-        totalEstimatedPipeline
+        totalInquiries:          inquiries.length,
+        newInquiries:            inquiries.filter(i => i.status === 'NEW').length,
+        totalQuotes:             quotes.length,
+        pendingQuotes:           quotes.filter(q => q.status === 'PENDING_QUOTE').length,
+        totalApplications:       applications.length,
+        exServicemenCount:       applications.filter(a => a.is_ex_serviceman).length,
+        totalEstimatedPipeline:  quotes.reduce((acc, q) => acc + (Number(q.estimated_monthly_inr) || 0), 0)
       },
-      recentInquiries: inquiries.slice(0, 10),
-      recentQuotes: quotes.slice(0, 10),
+      recentInquiries:    inquiries.slice(0, 10),
+      recentQuotes:       quotes.slice(0, 10),
       recentApplications: applications.slice(0, 10),
-      recentLogs: logs
+      recentLogs:         logs
     };
 
     apiCache.set('admin_metrics', data, 15000);
-
     res.json({ success: true, ...data, fromCache: false });
   } catch (err) {
     console.error('Metrics Error:', err);
@@ -55,9 +44,8 @@ export async function getDashboardMetrics(req, res) {
 
 export async function getAllInquiries(req, res) {
   try {
-    const rawInquiries = await dbQuery('SELECT * FROM inquiries ORDER BY created_at DESC');
-    const inquiries = decryptObjectFields(rawInquiries, ['phone', 'email', 'message']);
-    res.json({ success: true, inquiries });
+    const raw = await Inquiry.find().sort({ createdAt: -1 }).lean();
+    res.json({ success: true, inquiries: decryptObjectFields(raw, ['phone', 'email', 'message']) });
   } catch (err) {
     res.status(500).json({ success: false, message: 'Failed to load inquiries.' });
   }
@@ -65,9 +53,8 @@ export async function getAllInquiries(req, res) {
 
 export async function updateInquiryStatus(req, res) {
   try {
-    const { id } = req.params;
     const { status, admin_notes } = req.body;
-    await dbQuery('UPDATE inquiries SET status = ?, admin_notes = ? WHERE id = ?', [status, admin_notes || null, id]);
+    await Inquiry.findByIdAndUpdate(req.params.id, { status, admin_notes: admin_notes || null });
     apiCache.del('admin_metrics');
     res.json({ success: true, message: 'Inquiry status updated.' });
   } catch (err) {
@@ -77,8 +64,7 @@ export async function updateInquiryStatus(req, res) {
 
 export async function deleteInquiry(req, res) {
   try {
-    const { id } = req.params;
-    await dbQuery('DELETE FROM inquiries WHERE id = ?', [id]);
+    await Inquiry.findByIdAndDelete(req.params.id);
     apiCache.del('admin_metrics');
     res.json({ success: true, message: 'Inquiry record removed.' });
   } catch (err) {
@@ -88,9 +74,8 @@ export async function deleteInquiry(req, res) {
 
 export async function getAllQuotes(req, res) {
   try {
-    const rawQuotes = await dbQuery('SELECT * FROM quote_requests ORDER BY created_at DESC');
-    const quotes = decryptObjectFields(rawQuotes, ['phone', 'email', 'special_instructions']);
-    res.json({ success: true, quotes });
+    const raw = await QuoteRequest.find().sort({ createdAt: -1 }).lean();
+    res.json({ success: true, quotes: decryptObjectFields(raw, ['phone', 'email', 'special_instructions']) });
   } catch (err) {
     res.status(500).json({ success: false, message: 'Failed to load quotes.' });
   }
@@ -98,9 +83,8 @@ export async function getAllQuotes(req, res) {
 
 export async function updateQuoteStatus(req, res) {
   try {
-    const { id } = req.params;
     const { status, admin_notes } = req.body;
-    await dbQuery('UPDATE quote_requests SET status = ?, admin_notes = ? WHERE id = ?', [status, admin_notes || null, id]);
+    await QuoteRequest.findByIdAndUpdate(req.params.id, { status, admin_notes: admin_notes || null });
     apiCache.del('admin_metrics');
     res.json({ success: true, message: 'Quote status updated.' });
   } catch (err) {
@@ -110,8 +94,7 @@ export async function updateQuoteStatus(req, res) {
 
 export async function deleteQuote(req, res) {
   try {
-    const { id } = req.params;
-    await dbQuery('DELETE FROM quote_requests WHERE id = ?', [id]);
+    await QuoteRequest.findByIdAndDelete(req.params.id);
     apiCache.del('admin_metrics');
     res.json({ success: true, message: 'Quote request deleted.' });
   } catch (err) {
@@ -121,9 +104,8 @@ export async function deleteQuote(req, res) {
 
 export async function getAllApplications(req, res) {
   try {
-    const rawApplications = await dbQuery('SELECT * FROM job_applications ORDER BY created_at DESC');
-    const applications = decryptObjectFields(rawApplications, ['phone', 'email', 'current_address', 'resume_summary']);
-    res.json({ success: true, applications });
+    const raw = await JobApplication.find().sort({ createdAt: -1 }).lean();
+    res.json({ success: true, applications: decryptObjectFields(raw, ['phone', 'email', 'current_address', 'resume_summary']) });
   } catch (err) {
     res.status(500).json({ success: false, message: 'Failed to load applications.' });
   }
@@ -131,13 +113,10 @@ export async function getAllApplications(req, res) {
 
 export async function updateApplicationStatus(req, res) {
   try {
-    const { id } = req.params;
-    const { status } = req.body;
-    await dbQuery('UPDATE job_applications SET status = ? WHERE id = ?', [status, id]);
+    await JobApplication.findByIdAndUpdate(req.params.id, { status: req.body.status });
     apiCache.del('admin_metrics');
     res.json({ success: true, message: 'Application status updated.' });
   } catch (err) {
     res.status(500).json({ success: false, message: 'Failed to update application.' });
   }
 }
-

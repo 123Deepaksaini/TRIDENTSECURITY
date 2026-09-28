@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import { dbQuery } from '../config/db.js';
+import { Admin } from '../config/db.js';
 
 dotenv.config();
 
@@ -22,16 +22,16 @@ export async function requireAdminAuth(req, res, next) {
     const token = authHeader.split(' ')[1];
     const decoded = jwt.verify(token, JWT_SECRET);
 
-    const admins = await dbQuery('SELECT id, username, email, full_name, role, is_active FROM admins WHERE id = ?', [decoded.id]);
-    
-    if (!admins || admins.length === 0 || !admins[0].is_active) {
+    const admin = await Admin.findById(decoded.id).select('-password_hash');
+
+    if (!admin || !admin.is_active) {
       return res.status(403).json({
         success: false,
         message: 'Unauthorized or deactivated administrator account.'
       });
     }
 
-    req.admin = admins[0];
+    req.admin = admin;
     next();
   } catch (err) {
     return res.status(401).json({
